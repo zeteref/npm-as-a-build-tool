@@ -1,0 +1,15 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "info": "echo \"hello world\" && exit 0",
+    "lint": "echo '=> linting' && jshint assets/scripts/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jshint": "^2.9.6"
+  }
+}
