@@ -1,5 +1,5 @@
 {
-  "name": "nodejs",
+  "name": "nodejs-basic",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,14 +7,23 @@
     "info": "echo \"hello world\" && exit 0",
     "lint": "echo '=> linting' && jshint assets/scripts/*.js",
     "pretest": "npm run lint -s",
-    "test": "echo '=> testing' && mocha test/"
+    "test": "echo '=> testing' && mocha test/",
+    "minify:js": "echo '=> minify:js' && uglifyjs assets/scripts/author.js -o dist/public/js/author.min.js",
+    "minify:css": "echo '=> minify:css' && cleancss assets/css/main.css -o dist/public/css/main.min.css",
+    "watch": "watch 'npm run minify:js && npm run minify:css' assets/scripts assets/css",
+    "build": "echo '=> building' && npm run test -s && npm run minify:js -s && npm run minify:css -s",
+    "serve": "http-server dist/public"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jshint": "^2.9.6"
+    "clean-css": "^4.2.1",
+    "clean-css-cli": "^4.2.1",
+    "http-server": "^0.11.1",
+    "jshint": "^2.9.6",
+    "mocha": "^5.2.0",
+    "uglify-js": "^3.4.9",
+    "watch": "^1.0.2"
   },
-  "dependencies": {
-    "mocha": "^5.2.0"
-  }
+  "dependencies": {}
 }
